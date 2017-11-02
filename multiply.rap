@@ -1,0 +1,30 @@
+### 
+# For X*Y=Z
+# I want [X,_,Y,_,Z,...]
+# I'll start by setting it to
+# [X,X,Y,Y,_]
+1 DEB 2 1 2 # clear register 2
+2 DEB 4 2 3 # clear 4
+3 DEB 5 3 4 # clear 5
+4 DEB 6 4 5 # clear 6
+5 DEB 1 6 8 # [loop on 1
+6 INC 2 7 # add to 2
+7 INC 4 5 # and 4]
+8 DEB 4 9 10 # [copy 4 
+9 INC 1 8 # to 1]
+10 DEB 3 11 13 # [loop on 3
+11 INC 4 12 # add to 4 and
+12 INC 6 10 # add to 6]
+13 DEB 6 14 15 #[copy 6
+14 INC 3 13 # to 3]
+# Okay, I've got [X,X,Y,Y,_]
+# I need to loop over 2, moving 
+# 4 to 5, then refreshing 4
+# I'll inc in a buffer 
+15 DEB 2 16 21 # loop on 2
+16 DEB 4 17 19 # [loop on 4
+17 INC 5 18 # add to 5
+18 INC 6 16 # and to 6] then
+19 DEB 6 20 15 # [move 6 
+20 INC 4 19 # t 4]
+21 END
