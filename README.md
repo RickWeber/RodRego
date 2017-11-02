@@ -16,4 +16,6 @@ Increments the contents of register R, then calls line X. This is called when an
 
 > N DEB R X Y
 
-Decrements the contents or register R, then calls line X. If R is empty, it calls line Y.
+Decrements the contents of register R, then calls line X. If R is empty, it calls line Y.
+
+DEB can be used to create a while loop. 
